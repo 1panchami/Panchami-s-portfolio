@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image7.jpg">
+    <title>Panchami's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+   <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            padding-top: 80px; 
+            background: #a5a3a3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            
+        }
+
+        nav {
+           
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: fixed; 
+            top: 0;
+            width: 100%;
+            z-index: 1000; 
+        }
+
+        .logo img {
+            max-height: 60px;
+            width: auto;
+            margin-left: 150px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            margin-right: 200px;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+      
+        .slideshow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            margin-top: -80px; 
+            background: rgba(0, 0, 0, 2.2);
+        }
+
+        .slideshow img {
+            display: none;
+            width: 100%;
+            height: 100vh; 
+            object-fit: cover; 
+        }
+
+        .slideshow .active {
+            display: block;
+        }
+
+        .slideshow button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            background: transparent;
+        }
+
+        .slideshow .prev {
+            left: 10px;
+        }
+
+        .slideshow .next {
+            right: 10px;
+        }
+
+        .slideshow button:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .about-image img {
+            max-width: 40%;
+            height: 300px;
+            border-radius: 5px;
+            margin-top: 180px;
+            width: 400px;
+        }
+
+        
+        #projects, #skills, footer#contact {
+            padding: 50px 20px;
+            background-color: #a5a3a3;
+            text-align: center;
+        }
+        #projects{
+            margin-top: 300px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        #skills {
+            background-color: #a5a3a3;
+            height: 640px;
+        }
+
+        #contact {
+            
+            background-color: #a5a3a3;
+            margin-top: -50px;
+        }
+
+        .project-card, .skill-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skill-card {
+            background: #cdcccc;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #6e6d6d;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #a8a7a7;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background: #555;
+        }
+
+        h2 {
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgb(174, 172, 172);
+            bottom: 0;
+            left: 0;
+        }
+        .github-btn {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.github-btn:hover {
+    background-color: #555;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px; 
+    width: 100%;
+    gap: 20px;
+    z-index: 10;
+}
+
+.icon {
+    font-size: 40px;
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #ddd; 
+}
+
+.icon i {
+    margin: 0 10px;
+}
+
+
+.slideshow-text {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 2s ease-out; 
+}
+
+
+.slideshow-text h1 {
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform:capitalize;
+    margin: 0;
+    color: #0a1420; 
+    animation: slideIn 1s ease-out;
+}
+
+
+.slideshow-text h2 {
+    font-size: 40px;
+    font-weight: normal;
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+    color: #0c0922;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+.about-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.about-button:hover {
+    background-color: #555;
+    transform: translateY(-3px); 
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
+#footer {
+    text-align: center;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.footer-icon {
+    font-size: 30px;
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+    color: #fff; 
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ddd;
+}
+.about-buttons {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: -470px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start; 
+}
+
+
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hamburger i {
+    color: white;
+}
+
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-right: 200px;
+}
+
+@media (max-width: 968px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+        margin-right: 20px;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-left: 20px;
+    }
+    .slider-button {
+        padding: 5px;
+    }
+}
+
+.nav-links.show {
+    display: flex;
+}
+.fa-bars {
+    margin-left: -90px; 
+}
+.fa-bars {
+    transform: translateX(-10px); 
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-button.left {
+    left: 10px;
+}
+
+.slider-button.right {
+    right: 10px;
+}
+
+
+
+    </style>
+</head>
+<body>
+   
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="image7.jpg" alt="My Blog Logo">
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  
+    <section class="slideshow">
+        <button class="prev">&#60;</button>
+        <img src="image2.jpg" alt="Image 1" class="slide active">
+        <img src="image1.jpg" alt="Image 2" class="slide">
+        <img src="image3.jpg" alt="Image 3" class="slide">
+        <img src="image4.jpg" alt="Image 3" class="slide">
+        <button class="next">&#62;</button>
+        <div class="slideshow-text">
+            <h1>Hii, Explorer</h1>
+            <h2>I'm Panchami</h2>
+            <a href="#about" class="about-button"> More About Me</a>
+        </div>
+        <div class="icons">
+            <a href="https://drive.google.com/file/d/11iRk57Sm1GQpc1F7rJJhqydjxs2ukAlY/view?usp=drivesdk" target="_blank" class="icon">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+            <a href="mailto:panchamimelige@gmail.com" class="icon">
+                <i class="fas fa-envelope"></i> 
+            </a>
+            <a href="http://www.linkedin.com/in/panchami-c-r" target="_blank" class="icon">
+                <i class="fab fa-linkedin"></i> 
+            </a>
+            <a href="https://github.com/1panchami/" target="_blank" class="icon">
+                <i class="fab fa-github"></i> 
+            </a>
+        </div>
+    </section>
+
+   
+    <section id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2 style="text-align: center;">About Me</h2>
+                <p style="font-size: 20px; text-align: justify;">  My name is Panchami C R, an aspiring developer with a strong passion for coding and problem-solving. I have worked on various projects, improving my skills in web development, software development, and application design. </p>
+            <p style="font-size: 20px; text-align: justify;">As a BE graduate student, I am continually improving my technical expertise and staying up-to-date with the latest trends in the tech industry. I am always eager to learn new technologies and apply them to real-world projects. If you believe I would be a good fit for your company, feel free to check out my <a href="https://www.linkedin.com/in/panchami-c-r/" target="_blank" style="text-decoration: underline; color: #333;font-weight: bold;font-family:Georgia, 'Times New Roman', Times, serif">LinkedIn profile!</a></p>
+            <a href="https://drive.google.com/file/d/11iRk57Sm1GQpc1F7rJJhqydjxs2ukAlY/view?usp=drivesdk" class="about-buttons" >Resume</a>
+        </div>
+            <div class="about-image">
+                <img src="image10.jpeg" alt="About Me">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="image8.jpg" alt="Project 1">
+                    <h3>Sales Prediction</h3>
+                    <p>Created a machine learning project to predict future salesusing past data, helping businesses make better decisions.Improved inventory management and marketing strategieswith accurate forecasts.</p>
+                    <a href="https://github.com/1panchami/" target="_blank">
+                        <button class="github-btn">View on GitHub</button>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <img src="image9.jpg" alt="Project 2">
+                    <h3>Online Food Delivery Application</h3>
+                    <p>Created a web development project for ordering fooditems, featuring menu display, cart functionality, andorder history management.This project is developed using HTML, CSS, JavaScript,JDBC and MySQL.</p>
+                    <a href="https://github.com/1panchami/" target="_blank">
+                        <button class="github-btn">View on GitHub</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3>Core Java</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>SQL</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>C</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Django</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>JDBC</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form class="contact-form" id="contactForm" onsubmit=" return showAlert()" >
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+<footer id="footer" style="background-color: #333; color: #fff; padding: 20px 0;">
+    <div class="container">
+        <h3 style="font-size: 20px;">Connect</h3>
+        <div class="footer-icons">
+            
+            <a href="mailto:panchamimelige@gmail.com" class="footer-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="http://www.linkedin.com/in/panchami-c-r" target="_blank" class="footer-icon">
+                <i class="fab fa-linkedin"></i> 
+            </a>
+            <a href="https://github.com/1panchami/" target="_blank" class="footer-icon">
+                <i class="fab fa-github"></i> 
+            </a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Panchami. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+   
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        const showSlide = (i) => {
+            slides.forEach((slide) => slide.classList.remove("active"));
+            slides[i].classList.add("active");
+        };
+
+        const nextSlide = () => {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        };
+
+        const prevSlide = () => {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        };
+
+        document.querySelector(".next").addEventListener("click", nextSlide);
+        document.querySelector(".prev").addEventListener("click", prevSlide);
+
+        setInterval(nextSlide, 5000);
+        function showAlert() {
+        
+        alert("Thank you for your message! I will get back to you soon.");
+        
+        document.getElementById("contactForm").reset();
+        return false; 
+    }
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+
+    document.querySelector(".fa-bars").addEventListener("click", function() {
+        var navLinks = document.querySelector(".navbar ul");
+        if (navLinks.style.display === "block") {
+            navLinks.style.display = "none";
+        } else {
+            navLinks.style.display = "block";
+        }
+    });
+    </script>
+</body>
+</html>
